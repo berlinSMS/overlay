@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlay-Sample 3</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="bsms-overlay.js"></script>
+</head>
+<body>
+    <h1>Overlay-Sample 3</h1>
+    <br><button onclick="popupOverlay()">Start assistent</button>
+
+    <!-- JavaScript-Funktionen -->
+    <script>
+        var $overlay;
+        var $page1 = undefined;
+        var $page2 = undefined;
+        var $page3 = undefined;
+        var $page4 = undefined;
+        $(document).ready(function () {
+            // Apply the plugin to the container
+            $overlay = $.bsmsOverlay({ closeRequested: overlayCloseRequested, onClose: overlayOnClose });
+
+            // create pages and content
+            $page1 = $overlay.addPage('page1','Schritt 1')
+                .append(`<input placeholder="Vorname">`)
+                .append(`<br><input placeholder="Nachname">`)
+                .append(`<br><button onclick="$page2?.show();">Weiter</button>`);
+
+            $page2 = $overlay.addPage('page2', 'Schritt 2')
+                .append(`<input placeholder="Betreff">`)
+                .append(`<br><textarea placeholder="Nachricht"></textarea><br>`)
+                .append(`<button onclick="$page1?.show()">Zurück</button>`)
+                .append(`<button onclick="$page3?.show()">Weiter</button>`);
+
+            $page3 = $overlay.addPage('page3', 'Schritt 3')
+                .append(`<button onclick="$page2?.show()">Zurück</button>`)
+                .append(`<button onclick="$page4?.show()">Senden</button>`)
+
+            $page4 = $overlay.addPage('page4', 'Abschluß')
+                .append(`<button onclick="$overlay?.hide()">Schließen</button>`);
+        });
+        function popupOverlay() {
+            $page1.show();
+        }
+        function overlayCloseRequested() {
+            return confirm('Close overlay ?');
+        }
+        function overlayOnClose() {
+            alert('Overlay closed');
+        }
+    </script>
+</body>
+</html>

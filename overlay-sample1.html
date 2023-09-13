@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlay-Sample 1</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="bsms-overlay.js"></script>
+</head>
+<body>
+    <h1>Overlay-Sample 1</h1>
+    <br><button style="width:150px" onclick="openPopup1()">Popup1</button>
+    <br><button style="width:150px" onclick="openPopup2()">Popup2 with text</button>
+    <br><button style="width:150px" onclick="openPopup3()">Popup3 with callback</button>
+
+    <!-- JavaScript-Funktionen -->
+    <script>
+        $(document).ready(function () {
+            $.bsmsOverlay()
+                .addPage('popup1', '', $('<input placeholder="Enter text">'))
+                .addPage('popup2', 'This is popup2', $('<button>BUTTON</button>'))
+                .addPage('popup3', 'And this ist popup3');
+        })
+        function openPopup1() {
+            $.bsmsOverlay()
+                .showPage('popup1');
+        }
+        function openPopup2() {
+            $.bsmsOverlay()
+                .showPage('popup2');
+        }
+        function openPopup3() {
+            $.bsmsOverlay()
+                .showPage('popup3',null, () => { alert('popup3 opened') });
+        }
+    </script>
+</body>
+</html>

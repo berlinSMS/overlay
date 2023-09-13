@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlay-Sample 2</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="bsms-overlay.js"></script>
+</head>
+<body>
+    <h1>Overlay-Sample 2</h1>
+    <br><button onclick="reopenOverlay()">Reopen Overlay</button>
+
+    <!-- JavaScript-Funktionen -->
+    <script>
+        var $overlay;
+        var $page1 = undefined;
+        var $page2 = undefined;
+        var $page3 = undefined;
+        $(document).ready(function () {
+            // Apply the plugin to the container
+            $overlay = $.bsmsOverlay({ closeRequested: overlayCloseRequested, onClose: overlayOnClose });
+
+            // create pages and annd content
+            $page1 = $overlay.getPage('page1')
+                .append(`<button onclick="$page1.show()" disabled>Page1</button>`)
+                .append(`<button onclick="$page2.show()">Page2</button>`)
+                .append(`<button onclick="$page3.show()">Page3</button>`)
+                .append(`<button onclick="$overlay.hide()">Close</button>`)
+                .show();
+            $page2 = $overlay.getPage('page2')
+                .append(`<button onclick="$page1.show()">Page1</button>`)
+                .append(`<button onclick="$page2.show()" disabled>Page2</button>`)
+                .append(`<button onclick="$page3.show()">Page3</button>`)
+                .append(`<button onclick="$overlay.hide()">Close</button>`);
+            $page3 = $overlay.getPage('page3')
+                .append(`<button onclick="$page1.show()">Page1</button>`)
+                .append(`<button onclick="$page2.show()">Page2</button>`)
+                .append(`<button onclick="$page3.show()" disabled>Page3</button>`)
+                .append(`<button onclick="$overlay.hide()">Close</button>`);
+        });
+        function reopenOverlay() {
+            $.bsmsOverlay().showPage('page3', 'just reopened page3');
+        }
+        function overlayCloseRequested() {
+            return confirm('Close overlay ?');
+        }
+        function overlayOnClose() {
+            alert('Overlay closed');
+        }
+    </script>
+</body>
+</html>
