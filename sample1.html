@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overlay-Sample 1</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="bsms-overlay.js"></script>
+    <script src="https://static.berlinsms.de/toolsforcoder/overlay/bsms-overlay.js"></script>
 </head>
 <body>
     <h1>Overlay-Sample 1</h1>
@@ -15,7 +15,7 @@
 
     <!-- JavaScript-Funktionen -->
     <script>
-        $(document).ready(function () {
+        $(() => {
             $.bsmsOverlay()
                 .addPage('popup1', '', $('<input placeholder="Enter text">'))
                 .addPage('popup2', 'This is popup2', $('<button>BUTTON</button>'))

@@ -1,11 +1,18 @@
 # jQuery Overlay
 [Homepage](https://www.berlinsms.de/)
 
+# Description
+A jquery-plugin to popup an overlay. 
+
+The overlay can carry each dom you want.
+
+The dom-elements are arranged in pages.
+
+You can easy flipp between pages and hide and show them together with the oyerlay
+
 # Usage
 
-Include jquery
-
-    
+Include jquery    
 ```html
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 ```
@@ -37,7 +44,7 @@ $(document).ready(function () {
 
 Add callbacks, if you need whem:
 ```js
-$(document).ready(function () {
+$(document).ready(()=>{
     $.bsmsOverlay( { closeRequested: overlayCloseRequested, onClose: overlayOnClose } );
 });    
 function overlayCloseRequested() {

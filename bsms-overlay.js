@@ -82,6 +82,20 @@ var beinwell = 0;
     line-height:20px;
     cursor: pointer
 }
+.${options.className} .overlay-credits {
+    position:absolute;
+    right:5px;
+    bottom:5px;
+    background-color: white;
+    padding: 2px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color:black;
+    font-size:12px;
+    font-family:arial;
+    text-decoration: None;
+	white-space: nowrap;
+}
 .${options.className} .overlay-page {
     position:relative;
     width:400px;
@@ -109,6 +123,8 @@ var beinwell = 0;
             closeRequested: null,
             pages: {},
             fadeInDuration: 500,
+            showCredits: true,
+            showClose: true
         };
 
         const settings = $.extend({}, defaultSettings, options);
@@ -122,9 +138,15 @@ var beinwell = 0;
         $overlay = $(`<div class="${settings.className}"></div>`)
             .appendTo('body')
             .hide();
-        const $overlayClose = $(`<button class="overlay-close">&#x2716;</button>`)
-            .appendTo($overlay)
-            .click(closeOverlayClick);
+        if (settings.showClose) {
+            $(`<button class="overlay-close">&#x2716;</button>`)
+                .appendTo($overlay)
+                .click(closeOverlayClick);
+        }
+        if (settings.showCredits) {
+            $(`<a class="overlay-credits" href="https://www.berlinsms.de">overlay powered by berlinsms.de</a>`)
+                .appendTo($overlay);
+        }
 
         //Exports
         $overlay.onClose = callback => { settings.onClose = callback; return $overlay; };
