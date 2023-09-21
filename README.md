@@ -95,7 +95,9 @@ $(document).ready(function () {
 | className      | Class of overlay for costum-css                                                                                                                     | bsms-overlay          |         
 | fadeInDuration | Duration the pages need to fadeIn                                                                                                                   | 500                   |
 | closeRequested | Callback that fires when the user clicks the cross in the top right corner.<br>- Return true to enable closing<br>- Return false to undo the close. | null<br>(allow close) |
-| onClose        | Callback triggered when overlay is closed                                                                                                           | null                  |
+| onClose        | Callback triggered when overlay is closed                                                                                                           | null                  | 
+| showClose      | shows the close-cross                                                                                                                               | true                  | 
+| showCredits    | shows credits                                                                                                                                       | true                  |
 
 # Functions
 
