@@ -46,7 +46,7 @@
  * OR THE USE OF OR OTHER DEALINGS WITH THE SOFTWARE.
  * 
  */
-var beinwell = 0;
+
 (function ($) {
 
     var $overlay = null;
@@ -57,68 +57,7 @@ var beinwell = 0;
         const caller = this;
         if (!options.className) options.className = 'bsms-overlay';
 
-        const defaultStyles = `
-.${options.className} {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Hintergrundfarbe mit Transparenz */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index:1;
-}
-.${options.className} .overlay-close {
-    position:absolute;
-    right:5px;
-    top:5px;
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    font-size:28px;
-    line-height:20px;
-    cursor: pointer
-}
-.${options.className} .overlay-credits {
-    position:absolute;
-    right:5px;
-    bottom:5px;
-    background-color: white;
-    padding: 2px 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    color:black;
-    font-size:12px;
-    font-family:arial;
-    text-decoration: None;
-	white-space: nowrap;
-}
-.${options.className} .overlay-page {
-    position:relative;
-    width:400px;
-    height:250px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family:arial;
-}
-.${options.className} .overlay-title {
-    position:absolute;
-    top:10px;
-    left:0;
-    width:380px;
-    padding:10px;
-}`;
-
         const defaultSettings = {
-            userStyles: defaultStyles,
-            className: 'bsms-overlay',
             onClose: null,
             closeRequested: null,
             pages: {},
@@ -130,9 +69,6 @@ var beinwell = 0;
         const settings = $.extend({}, defaultSettings, options);
 
         if ($overlay) return $overlay;
-
-        $(`<style type="text/css">${settings.userStyles}</style>`)
-            .prependTo('head');
 
         //dom
         $overlay = $(`<div class="${settings.className}"></div>`)

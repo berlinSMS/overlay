@@ -1,0 +1,25 @@
+{
+  "name": "jquery-overlay",
+  "version": "1.0.1",
+  "description": "jQuery-Plugin to pop an overlay with your own dom. Arrage your dom in pages an switch between pages easyly",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "minify": "webpack --mode development",
+    "deploy": "npm run build && svn commit && git push && npm version patch"
+  },
+  "keywords": [
+    "overlay",
+    "popup",
+    "pages",
+    "container",
+    "jquery"
+  ],
+  "author": "haka for berlinsms <service@berlinsms.de> (https://www.berlinsms.de)",
+  "license": "MIT",
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^4.10.0"
+  }
+}
