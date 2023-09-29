@@ -91,8 +91,7 @@ $(document).ready(function () {
 # Options
 
 | Option         | DESCRIPTION                                                                                                                                         | DEFAULT               |
-|================|=====================================================================================================================================================|=======================|
-| className      | Class of overlay for costum-css                                                                                                                     | bsms-overlay          |         
+|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
 | fadeInDuration | Duration the pages need to fadeIn                                                                                                                   | 500                   |
 | closeRequested | Callback that fires when the user clicks the cross in the top right corner.<br>- Return true to enable closing<br>- Return false to undo the close. | null<br>(allow close) |
 | onClose        | Callback triggered when overlay is closed                                                                                                           | null                  | 
@@ -101,28 +100,27 @@ $(document).ready(function () {
 
 # Functions
 
-| Option   | Parameter                    | DESCRIPTION        |
-|==========|==============================|====================|
-| addPage  | pagename, title, $dom        | Creates a new page |
-| getPage  | pagename                     | Retrieves a page   |
-| showPage | pagename, title, afterFadeIn | Shows a page       |
-| hide     |                              | Hides the overlay  |
-| show     |                              | Shows the overlay  |
+| Option   | Parameter                    | DESCRIPTION                                   |
+|----------|------------------------------|-----------------------------------------------|
+| addPage  | pagename, title, $dom        | Creates a new page containing the given DOM   |
+| getPage  | pagename                     | Retrieves a page                              |
+| showPage | pagename, title, afterFadeIn | Shows a page (and calls the callback after)   |
+| hide     |                              | Hides the overlay                             |
+| show     |                              | Shows the overlay                             |
 
-Remarks:
- - if pagename is unknow, it will create a page with this pagename
- - if pagename is empty, a randowm pagename is generated
- - show: in page-context it will open this page, but in context of the overlay itself it opens the last shown page or an empty-page, if there is no last shown page
-
-
-# Meaning of the parameters
+## Meaning of the parameters
 
 | Parameter   | Default        | Description                                                                          |
-|=============|================|======================================================================================|
+|-------------|----------------|--------------------------------------------------------------------------------------|
 | pagename    | auto-generated | page-identifier, that you can use to access to a page (will not be shown on page)    |
 | title       | null           | Title-text, that will be showed on the top of a page (null=dont change current title |
 | $dom        | null           | Jquery-Object, that will be append to a page                                         |
 | afterFadeIn | null           | Callback triggered when page-fade-in is finished (see fadeInDuration-option)         |
+
+## Remarks:
+ - if pagename is unknow, it will create a page with this pagename
+ - if pagename is empty, a random pagename is generated
+ - show: in page-context it will open this page, but in context of the overlay itself it opens the last shown page or an empty-page, if there is no last shown page
 
 
                                                                                                                                                                             
