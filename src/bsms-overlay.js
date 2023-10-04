@@ -54,9 +54,6 @@
 
     $.bsmsOverlay = function (options = {}) {
 
-        const caller = this;
-        if (!options.className) options.className = 'bsms-overlay';
-
         const defaultSettings = {
             onClose: null,
             closeRequested: null,
@@ -71,7 +68,7 @@
         if ($overlay) return $overlay;
 
         //dom
-        $overlay = $(`<div class="${settings.className}"></div>`)
+        $overlay = $(`<div class="bsms-overlay"></div>`)
             .appendTo('body')
             .hide();
         if (settings.showClose) {

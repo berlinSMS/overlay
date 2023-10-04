@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overlay-Sample 2</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="../dist/bsms-overlay.min.css">
+    <link rel="stylesheet" href="../dist/bsms-overlay.css">
     <script src="../dist/bsms-overlay.min.js"></script>
 </head>
 <body>
@@ -41,7 +41,7 @@
                 .append(`<button onclick="$overlay.hide()">Close</button>`);
         });
         function reopenOverlay() {
-            $.bsmsOverlay().showPage('page3', 'just reopened page3');
+            $.bsmsOverlay().show();
         }
         function overlayCloseRequested() {
             return confirm('Close overlay ?');

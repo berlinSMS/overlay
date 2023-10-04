@@ -12,19 +12,18 @@ You can easy flipp between pages and hide and show them together with the oyerla
 
 # Usage
 
-Include jquery    
+Download js and css for bsms-overlay
+```link
+https://static.berlinsms.de/toolsforcoder/overlay/dist/bsms-overlay.min.js
+https://static.berlinsms.de/toolsforcoder/overlay/dist/bsms-overlay.css
+```
+
+
+Include jquery and js+css for bsms-overlay
 ```html
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-```
-Download bsms-overlay
-
-```link
-https://raw.githubusercontent.com/berlinSMS/overlay/main/bsms-overlay.js
-```
-
-Include bsms-overlay
-```html
-<script src="bsms-overlay.js"></script>
+<link rel="stylesheet" href="bsms-overlay.css">
+<script src="bsms-overlay.min.js"></script>
 ```
 
 Assign overlay to your dom, but make sure, the script is fully loaded, before you assign overlay, e.g. use jquerys 'ready'

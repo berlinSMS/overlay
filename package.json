@@ -8,9 +8,10 @@
   "scripts": {
     "build": "webpack --mode production",
     "minify": "webpack --mode development",
-    "deploy": "npm run build && svn commit && git push && npm login && npm publish --access public"
+    "deploy": "npm run build && svn commit && git push && npm login && npm publish --access public && npm unpublish @berlinsms/overlay@1.0.3 --force"
   },
   "keywords": [
+    "js",
     "overlay",
     "popup",
     "pages",
